@@ -1,0 +1,25 @@
+{
+    "name": "igeo/adventofcode-php",
+    "description": "PHP solutions to \"Advent of Code\" tasks.",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "symfony/console": "^5.3"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.1",
+        "phpstan/phpstan": "^0.12",
+        "symfony/var-dumper": "^5.3",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
