@@ -36,9 +36,9 @@ class PuzzleLocatorService
      * @param integer $day
      * @param integer $part
      *
+     * @return string
      * @throws LogicException If project root, puzzle directory, or specific puzzle cannot be found
      *
-     * @return string
      */
     public function getPuzzleClassName(int $year, int $day, int $part): string
     {
@@ -83,9 +83,9 @@ class PuzzleLocatorService
      * @param integer $day
      * @param integer $part
      *
+     * @return string|null
      * @throws LogicException If project root or puzzle directory cannot be found
      *
-     * @return string|null
      */
     private function getPuzzleFilepath(int $year, int $day, int $part): ?string
     {
@@ -150,15 +150,15 @@ class PuzzleLocatorService
         $puzzle = new $puzzleClassName();
         $output = $puzzle->solution($input);
 
-        return (string) $output;
+        return (string)$output;
     }
 
     /**
      * Gets the project puzzle dir.
      *
+     * @return string The project puzzle dir
      * @throws LogicException If project root or puzzle directory cannot be found
      *
-     * @return string The project puzzle dir
      */
     private function getProjectPuzzleDir(): string
     {

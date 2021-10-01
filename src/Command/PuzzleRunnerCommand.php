@@ -56,7 +56,7 @@ class PuzzleRunnerCommand extends Command
             );
             return CommandOutputHelper::ERROR_CODE;
         }
-        $year = (int) $year;
+        $year = (int)$year;
 
         $day = $input->getArgument('day');
         if (!filter_var($day, FILTER_VALIDATE_INT)) {
@@ -66,7 +66,7 @@ class PuzzleRunnerCommand extends Command
             );
             return CommandOutputHelper::ERROR_CODE;
         }
-        $day = (int) $day;
+        $day = (int)$day;
 
         $part = $input->getArgument('part');
         if (!filter_var($part, FILTER_VALIDATE_INT)) {
@@ -76,7 +76,7 @@ class PuzzleRunnerCommand extends Command
             );
             return CommandOutputHelper::ERROR_CODE;
         }
-        $part = (int) $part;
+        $part = (int)$part;
 
         $puzzleInput = $input->getArgument('puzzle_input');
 

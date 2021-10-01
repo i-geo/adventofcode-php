@@ -44,6 +44,7 @@ class Part2Test extends TestCase
             'single number' => ['123', InvalidInput::class, 'Insufficient input, please provide more data.'],
             'no solution small numbers' => ["1\n20", NoSolution::class, 'No solution found.'],
             'no solution larger number exit' => ["1\n2021\n3000", NoSolution::class, 'No solution found.'],
+            'no solution all larger' => ["2021\n3000", NoSolution::class, 'No solution found.'],
         ];
     }
 

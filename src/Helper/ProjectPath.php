@@ -9,9 +9,9 @@ class ProjectPath
     /**
      * Gets the project root dir (path of the project's composer file).
      *
+     * @return string The project root dir
      * @throws LogicException If project root directory cannot be found
      *
-     * @return string The project root dir
      */
     public static function getProjectRootDir(): string
     {
