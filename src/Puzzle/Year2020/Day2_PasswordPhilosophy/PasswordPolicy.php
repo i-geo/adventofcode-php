@@ -26,19 +26,11 @@ class PasswordPolicy implements Policy
     }
 
     /**
-     * @return int
-     */
-    public function getMin(): int
-    {
-        return $this->min;
-    }
-
-    /**
      * @param int $min
      * @return PasswordPolicy
      * @throws InvalidInput
      */
-    public function setMin(int $min): PasswordPolicy
+    private function setMin(int $min): PasswordPolicy
     {
         $this->validateNumber($min, 'min');
         $this->min = $min;
@@ -46,19 +38,11 @@ class PasswordPolicy implements Policy
     }
 
     /**
-     * @return int
-     */
-    public function getMax(): int
-    {
-        return $this->max;
-    }
-
-    /**
      * @param int $max
      * @return PasswordPolicy
      * @throws InvalidInput
      */
-    public function setMax(int $max): PasswordPolicy
+    private function setMax(int $max): PasswordPolicy
     {
         $this->validateNumber($max, 'max');
         if ($this->min > $max) {
@@ -69,18 +53,10 @@ class PasswordPolicy implements Policy
     }
 
     /**
-     * @return string
-     */
-    public function getCharacter(): string
-    {
-        return $this->character;
-    }
-
-    /**
      * @param string $character
      * @return PasswordPolicy
      */
-    public function setCharacter(string $character): PasswordPolicy
+    private function setCharacter(string $character): PasswordPolicy
     {
         $this->character = $character;
         return $this;
