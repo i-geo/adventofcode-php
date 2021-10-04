@@ -47,18 +47,21 @@ class Part1Test extends TestCase
     {
         return [
             // negative tests
-            'empty' => ['', InvalidInput::class, 'Empty input, please provide some data.'],
-            'invalid map data' => ["..#X..", InvalidInput::class, 'Incorrect input on line 1, must be open squares (.) or trees (#).'],
+            'empty' => ['', 0, 0, InvalidInput::class, 'Empty input, please provide some data.'],
+            'invalid map data' => ["..#X..", 0, 0, InvalidInput::class, 'Incorrect input on line 1, must be open squares (.) or trees (#).'],
+            'invalid start x' => ["....\n....", 10, 0, InvalidInput::class, 'Start x position cannot be larger than map width.'],
+            'invalid start y' => ["....\n....", 0, 10, InvalidInput::class, 'Start y position cannot be larger than map height.'],
         ];
     }
 
     /**
      * @dataProvider invalidInputProvider
      */
-    public function testSolutionException(string $input, string $exceptionClass, string $exceptionMessage): void
+    public function testSolutionException(string $input, $x, $y, string $exceptionClass, string $exceptionMessage): void
     {
         $this->expectException($exceptionClass);
         $this->expectExceptionMessage($exceptionMessage);
+        $this->part1->setX($x)->setY($y);
         $this->part1->solution($input);
     }
 

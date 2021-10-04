@@ -2,6 +2,8 @@
 
 namespace App\Puzzle\Year2020\Day3_TobogganTrajectory;
 
+use App\Puzzle\Exceptions\InvalidInput;
+
 class AbstractVehicle implements Encounterable
 {
     private int $down;
@@ -15,11 +17,18 @@ class AbstractVehicle implements Encounterable
 
     /**
      * @inheritDoc
+     * @throws InvalidInput
      */
     public function countEncounters(Map $map, int $x = 0, int $y = 0): int
     {
-        // TODO: validate start position is not outside map boundaries
+        $mapWidth = $map->getWidth();
+        if ($x > $mapWidth) {
+            throw new InvalidInput('Start x position cannot be larger than map width.');
+        }
         $mapHeight = $map->getHeight();
+        if ($y > $mapHeight) {
+            throw new InvalidInput('Start y position cannot be larger than map height.');
+        }
         $count = 0;
         while ($y < $mapHeight) {
             if ($map->isEncounter($x, $y)) {

@@ -52,7 +52,7 @@ The locations you'd check in the above example are marked here with O where ther
 .#..#...#.#.#..#...#.#.#..#...X.#.#..#...#.#.#..#...#.#.#..#...#.#  --->
 In this example, traversing the map using this slope would cause you to encounter 7 trees.
 
-Starting at the top-left corner of your map and following a slope of right 3 and down 1, how many trees would you encounter?
+Starting in the top-left corner of your map and following a slope of right 3 and down 1, how many trees would you encounter?
 
 */
 
@@ -70,6 +70,9 @@ class Part1 implements PuzzleInterface
     private const START_X = 0;
     private const START_Y = 0;
 
+    private int $x = self::START_X;
+    private int $y = self::START_Y;
+
     /**
      * Finds the sum of all digits that match the next digit in the circular list.
      *
@@ -81,10 +84,27 @@ class Part1 implements PuzzleInterface
     public function solution(mixed $input): int
     {
         $treeMap = new TreeMap($input, self::OPEN, self::TREE);
-        $x = self::START_X;
-        $y = self::START_Y;
         $toboggan = new Toboggan(self::DOWN, self::RIGHT);
-        return $toboggan->countEncounters($treeMap, $x, $y);
+        return $toboggan->countEncounters($treeMap, $this->x, $this->y);
     }
 
+    /**
+     * @param int $x
+     * @return Part1
+     */
+    public function setX(int $x): Part1
+    {
+        $this->x = $x;
+        return $this;
+    }
+
+    /**
+     * @param int $y
+     * @return Part1
+     */
+    public function setY(int $y): Part1
+    {
+        $this->y = $y;
+        return $this;
+    }
 }
