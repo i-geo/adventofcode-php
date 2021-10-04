@@ -26,7 +26,7 @@ class IntValidator extends Validator
 
         $value = (int)$value;
         if ($this->min > $value || $value > $this->max) {
-            throw new ValidationFailed("$value must be between {$this->min} and {$this->max}");
+            throw new ValidationFailed("$value must be between $this->min and $this->max");
         }
         return true;
     }

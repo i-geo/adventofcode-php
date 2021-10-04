@@ -32,7 +32,7 @@ abstract class Validator implements Validatable
     {
         $matched = preg_match($this->validationPattern, $value);
         if (!$matched) {
-            throw new ValidationFailed("$value must match: {$this->validationPattern}");
+            throw new ValidationFailed("$value must match: $this->validationPattern");
         }
 
         return true;
