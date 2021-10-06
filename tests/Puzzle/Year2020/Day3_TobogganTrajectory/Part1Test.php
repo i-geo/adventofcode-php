@@ -57,7 +57,7 @@ class Part1Test extends TestCase
     /**
      * @dataProvider invalidInputProvider
      */
-    public function testSolutionException(string $input, $x, $y, string $exceptionClass, string $exceptionMessage): void
+    public function testSolutionException(string $input, int $x, int $y, string $exceptionClass, string $exceptionMessage): void
     {
         $this->expectException($exceptionClass);
         $this->expectExceptionMessage($exceptionMessage);
