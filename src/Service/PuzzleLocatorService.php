@@ -13,21 +13,21 @@ class PuzzleLocatorService
      *
      * @var string
      */
-    private static $puzzleDirRelativePath = '/src/Puzzle';
+    private static string $puzzleDirRelativePath = '/src/Puzzle';
 
     /**
      * Puzzle namespace prefix.
      *
      * @var string
      */
-    private static $puzzleNamespacePrefix = 'App';
+    private static string $puzzleNamespacePrefix = 'App';
 
     /**
      * Puzzle year directory prefix.
      *
      * @var string
      */
-    private static $yearPrefix = 'Year';
+    private static string $yearPrefix = 'Year';
 
     /**
      * Gets class name for puzzle year, day and part if such exists.
@@ -165,7 +165,7 @@ class PuzzleLocatorService
         $projectRootDir = ProjectPath::getProjectRootDir();
 
         $projectPuzzleDir = $projectRootDir . self::$puzzleDirRelativePath;
-        while (!file_exists($projectPuzzleDir)) {
+        if (!file_exists($projectPuzzleDir)) {
             throw new LogicException('Project puzzle directory cannot be found.');
         }
 

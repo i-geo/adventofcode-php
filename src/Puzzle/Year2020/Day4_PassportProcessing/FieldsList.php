@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUnused */
 
 namespace App\Puzzle\Year2020\Day4_PassportProcessing;
 

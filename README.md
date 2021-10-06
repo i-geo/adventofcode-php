@@ -60,9 +60,12 @@ Multiline input can be pasted to CLI using quotes.
 Both single quotes and double quotes work.
 
 ```sh
-php bin/console puzzle:run 2020 1 1 '5 1 9 5
-7 5 3
-2 4 6 8'
+php bin/console puzzle:run 2020 1 1 '1721
+  979
+  366
+  299
+  675
+  1456'
 ```
 
 # Tests

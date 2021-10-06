@@ -20,46 +20,40 @@ class PasswordPolicy implements Policy
      */
     public function __construct(int $min, int $max, string $character)
     {
-        $this->setMin($min)
-            ->setMax($max)
-            ->setCharacter($character);
+        $this->setMin($min);
+        $this->setMax($max);
+        $this->setCharacter($character);
     }
 
     /**
      * @param int $min
-     * @return PasswordPolicy
      * @throws InvalidInput
      */
-    private function setMin(int $min): PasswordPolicy
+    private function setMin(int $min): void
     {
         $this->validateNumber($min, 'min');
         $this->min = $min;
-        return $this;
     }
 
     /**
      * @param int $max
-     * @return PasswordPolicy
      * @throws InvalidInput
      */
-    private function setMax(int $max): PasswordPolicy
+    private function setMax(int $max): void
     {
         $this->validateNumber($max, 'max');
         if ($this->min > $max) {
             throw new InvalidInput('max must be greater than min.');
         }
         $this->max = $max;
-        return $this;
     }
 
     /**
      * @param string $character
-     * @return PasswordPolicy
      */
-    private function setCharacter(string $character): PasswordPolicy
+    private function setCharacter(string $character): void
     {
         $this->character = $character;
-        return $this;
     }
 
     /**

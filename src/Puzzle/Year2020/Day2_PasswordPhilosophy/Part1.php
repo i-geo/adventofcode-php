@@ -105,6 +105,7 @@ class Part1 implements PuzzleInterface
         // Business Decision: Reject or ignore invalid lines?
         // For this exercise will reject on invalid
         if (preg_match(self::LINE_FORMAT_REGEX, $text, $match) !== 1) {
+            /** @psalm-suppress */
             throw new InvalidInput("Incorrect input on line $lineNum, please provide each line in format '<min>-<max> <character>:<password>'.");
         }
 

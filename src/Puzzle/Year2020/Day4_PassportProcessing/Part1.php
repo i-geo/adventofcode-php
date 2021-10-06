@@ -57,24 +57,23 @@ use App\Puzzle\PuzzleInterface;
 
 class Part1 implements PuzzleInterface
 {
-    const WHITE_SPACE_CHARACTERS = ["\r", "\t"];
-    const NEW_LINE = "\n";
-    const FIELD_SEPARATOR = ' ';
-    const VALUE_SEPARATOR = ':';
+    private const WHITE_SPACE_CHARACTERS = ["\r", "\t"];
+    private const NEW_LINE = "\n";
+    private const FIELD_SEPARATOR = ' ';
+    private const VALUE_SEPARATOR = ':';
 
     /**
      * Finds the count of all valid passports.
      *
      * @param mixed $input trees list
      *
-     * @return int Sum
+     * @return int count of valid passports
      */
     public function solution(mixed $input): int
     {
         $passports = $this->extractPassports($input);
         return count($passports);
     }
-
 
     /**
      * Validate and prepare data from input into expected format
