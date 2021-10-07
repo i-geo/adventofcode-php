@@ -4,22 +4,17 @@ namespace App\Puzzle\Year2020\Day3_TobogganTrajectory;
 
 use App\Puzzle\Exceptions\InvalidInput;
 
-class AbstractVehicle implements Encounterable
+abstract class AbstractVehicle implements Encounterable
 {
-    private int $down;
-    private int $right;
-
-    public function __construct(int $down, int $right)
-    {
-        $this->down = $down;
-        $this->right = $right;
-    }
-
     /**
-     * @inheritDoc
+     * Validates startup coordinates on the map
+     * @param Map $map
+     * @param int $x
+     * @param int $y
+     * @return void
      * @throws InvalidInput
      */
-    public function countEncounters(Map $map, int $x = 0, int $y = 0): int
+    protected function validateMapStartPos(Map $map, int $x = 0, int $y = 0): void
     {
         $mapWidth = $map->getWidth();
         if ($x > $mapWidth) {
@@ -29,17 +24,12 @@ class AbstractVehicle implements Encounterable
         if ($y > $mapHeight) {
             throw new InvalidInput('Start y position cannot be larger than map height.');
         }
-        $count = 0;
-        while ($y < $mapHeight) {
-            if ($map->isEncounter($x, $y)) {
-                $count++;
-            }
-            // move toboggan along the slope
-            $x += $this->right;
-            $y += $this->down;
-        }
-
-        return $count;
     }
+
+    /**
+     * @inheritDoc
+     * @throws InvalidInput
+     */
+    abstract public function countEncounters(Map $map, int $x = 0, int $y = 0): int;
 
 }
